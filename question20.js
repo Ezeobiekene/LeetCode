@@ -56,5 +56,6 @@ var isValid = function(s) {
                 return false
             }
         }
+        //when the entire stack has been processed and popped and no false is found, return true
         return stack.length === 0 
 };
