@@ -34,6 +34,7 @@
 
 
 var MinStack = function() {
+    //create two stacks, one for operations and the other to keep track of the min value
     this.stack = []
     this.minStack = []
 };
@@ -43,14 +44,13 @@ var MinStack = function() {
  * @return {void}
  */
 MinStack.prototype.push = function(val) {
+    //the push method will add the val to the main stack and add the min value at that time to the minStack
     this.stack.push(val)
 
-    if(this.minStack.length !== 0){
-        if(this.minStack[this.minStack.length - 1] <= val){
-            this.minStack.push(this.minStack[this.minStack.length - 1])
-        }else{
-            this.minStack.push(val)
-        }
+    //this minStack is not empty and the val is greater or equals to the last element in the min stack then push the last element of the minstack into the min stack
+    // else push the val into the min stack
+    if(this.minStack.length !== 0 && val >= this.minStack[this.minStack.length - 1] ){
+        this.minStack.push(this.minStack[this.minStack.length - 1])
     }else{
         this.minStack.push(val)
     }
@@ -59,6 +59,8 @@ MinStack.prototype.push = function(val) {
 /**
  * @return {void}
  */
+
+//pop from both stacks
 MinStack.prototype.pop = function() {
     this.stack.pop()
     this.minStack.pop()
@@ -67,6 +69,7 @@ MinStack.prototype.pop = function() {
 /**
  * @return {number}
  */
+//top returns the last element in the main stack
 MinStack.prototype.top = function() {
    return this.stack[this.stack.length - 1]
 };
@@ -74,6 +77,7 @@ MinStack.prototype.top = function() {
 /**
  * @return {number}
  */
+//getMin returns the last element in the minStack
 MinStack.prototype.getMin = function() {
     return this.minStack[this.minStack.length - 1]
 };
