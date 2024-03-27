@@ -18,10 +18,17 @@
 
 
 var reverseList = function(head) {
+
+    //variable to store the previous node
     let prev = null;
 
+    //curr to store the working variable
     let curr = head;
-    
+
+    /*
+   while current is not null, set curr.next to the prev to make it point to the node before it
+    then set prev to curr and set curr to the next node stored in nextTemp
+   */
     while (curr !== null) {
         let nextTemp = curr.next;
         curr.next = prev;
