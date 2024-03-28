@@ -24,27 +24,41 @@
 
 var mergeTwoLists = function(list1, list2) {
 
+    //dummy node to act as the first node in the list
     let dummyNode = new ListNode()
-    const dummy = dummyNode
 
+    //head pointer to easily locate the first Node of the list
+    const head = dummyNode
+
+    //while list one and two .next is not pointing to null perform the operations in the parenthese
     while(list1 && list2){
+        //if list1 value is less than the list2 value
         if(list1.val < list2.val){
-            head = list1
+            //add list1 to the end of the dummyNode
             dummyNode.next = list1
+
+            //move to the next node in list one for the next comparison
             list1 = list1.next
         }else{
-            head = list2
+        //else add list12 to the end of the dummyNode
             dummyNode.next = list2
+
+        //move to the next node in list one for the next comparison
             list2 = list2.next
         }
+        
+        //move to the recently added node 
         dummyNode = dummyNode.next
     }
     if (list1) {
+       //if there are still nodes left in list one then add them to the end of the dummyNode
        dummyNode.next = list1;
     }
     if (list2) {
+         //if there are still nodes left in list two then add them to the end of the dummyNode
          dummyNode.next = list2;
     }
 
-    return dummy.next
+    // return the list excluding the head 
+    return head.next
 };
