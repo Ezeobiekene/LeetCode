@@ -33,7 +33,7 @@
 // 1 <= apple[i], capacity[i] <= 50
 // The input is generated such that it's possible to redistribute packs of apples into boxes.
 
-//
+
 var minimumBoxes = function(apple, capacity) {
     if(!apple) return 0
 
@@ -42,6 +42,7 @@ var minimumBoxes = function(apple, capacity) {
         return acc
     }, 0)
 
+    
     let count = 0
     capacity = capacity.sort((a, b) => b - a)
 
@@ -57,5 +58,6 @@ var minimumBoxes = function(apple, capacity) {
         
     }
 
+    //return  the amount of boxes used
     return count
 };
