@@ -52,6 +52,7 @@ var minimumBoxes = function(apple, capacity) {
             count++
 
 
+            //if there is no more apples left then return the number of boxes used
             if(sum <= 0){
               return count
              }
